@@ -13,6 +13,10 @@
   padding: 40px 20px;
 
   .main-section {
+    padding-left: 20px;
+    padding-right: 20px;
+
+
     .welcome-title {
       width: 335px;
       font-size: 38px;
@@ -27,8 +31,7 @@
       width: 248px;
       color: var(--main-text-color);
       letter-spacing: -0.28px;
-      padding-top: 110px;
-      padding-bottom: 40px;
+      padding: 40px 0;
       font-size: 14px;
       font-style: normal;
       font-weight: 300;
@@ -42,47 +45,82 @@
       }
     }
 
-    .slider {
-      width: 100%;
-      height: 200px;
-      margin: 0 auto 20px;
-      text-align: center;
-
-      .photos {
-        position: relative;
-        height: 190px;
-      }
-
-      .photos img {
+    
+    .carousel {
+      position: relative;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 266px;
+      padding-top: 60px;
+     
+      
+      .slider {
         width: 100%;
-        position: absolute;
-        left: 0;
-        opacity: 0;
-        transition: opacity 1s;
-      }
-      .photos img.shown {
-        opacity: 1;
-      }
+        height: 190px;   
+        position: relative;
+        overflow: hidden;
+        background-color:  #1E2827;
+        
+        
 
-      .buttons {
-        .prev:before,
-        .next:before {
-          color: #fff;
-          font-size: 100px;
+        .slide {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
           position: absolute;
-          top: 75%;
-          cursor: pointer;
-        }
-        .prev:before {
-          content: '<';
-          left: 0;
-        }
-        .next:before {
-          content: '>';
-          right: 0;
+          transition: 1s;
+          padding: 5px 20px;
         }
       }
+      .nav-carousel {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-top: 31px;
+
+        .btnslide-container {
+          gap: 12px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      
+
+          .btnslide {
+            width: 32px;
+            height: 32px;
+            padding: 7px;
+            border: 1px solid #ffffff80;
+            border-radius: 8px;
+            justify-content: center;
+            align-items: center;
+            transition: border-color .25s ease-in-out;
+            display: flex;
+          }
+          .btnslide:hover, .btnslide:focus {
+            border-color: #fff;
+          }
+        }
+
+        .slide-number {
+          gap: 6px;
+          font-family: Epilogue;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 18px;
+          letter-spacing: -0.02em;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+      }
+      
+     
     }
+
   }
 }
 
@@ -95,10 +133,16 @@
 
     .main-section {
       margin: 0 auto;
-      padding-left: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      padding-left: 0px;
+      padding-right: 0px;
+      gap: 20px;
+      align-items: center;
+      
+
 
       .welcome-title {
-        padding: 0 0 60px 32px;
         width: 653px;
         font-size: 60px;
         line-height: 62px;
@@ -107,83 +151,79 @@
       .welcome-paragraph {
         float: right;
         width: 248px;
-        padding-top: 40px;
-        padding-bottom: 40px;
-        font-size: 14px;
-        font-weight: 300;
-        line-height: 18px;
       }
 
       .welcome-picture {
-        img {
-          padding: 0;
-          width: 100%;
-        }
+        padding-top: 20px;
       }
-
-      .slider {
-        padding-bottom: 400px;
+      .carousel {
         width: 436px;
-        height: 255px;
-        float: left;
-        margin: 0 auto 20px;
-        text-align: center;
-        overflow: hidden;
-
-        .photos {
-          position: relative;
-          height: 190px;
+        padding-top: 71px;
+        .slider {
+          height: 233px;
+         
+          .slide {
+            padding: 11px 44px;
+          }
         }
 
-        .photos img {
-          width: 100%;
-          position: absolute;
-          left: 0;
-          opacity: 100;
-          transition: opacity 1s;
+        .nav-carousel {
+          padding-top: 20px;
+  
+          .btnslide-container {
+            .btnslide {
+              width: 40px;
+              height: 40px;
+              padding: 8px;
+            }
+          }
+          .slide-number {
+            font-family: Epilogue;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 18px;
+            letter-spacing: -0.02em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
         }
       }
     }
   }
 }
 
+
 /* Desktop  */
 
 @media screen and (min-width: 1178px) {
   .main-container {
-    position: relative;
-    padding: 0;
+    padding-top: 100px;
+    padding-bottom: 40px;
+    
 
     .main-section {
-      max-width: 1440px;
-      width: 100%;
+      max-width: 1178px;
       position: relative;
-      margin: 0 auto;
-      padding-left: 20px;
-      padding-right: 20px;
 
       .welcome-title {
-        padding: 0px;
-        font-size: 60px;
-        line-height: 62px;
-        width: 750px;
         max-width: 750px;
+        font-size: 60px;
+        width: 750px;
+        letter-spacing: -2.4px;
       }
 
       .welcome-paragraph {
         width: 282px;
-        height: 90px;
-        margin-bottom: 77px;
+        right: 20px;
         padding: 0;
         position: absolute;
-        top: 0;
-        right: 132px;
+        top: 0px;
       }
 
       .welcome-picture {
         position: relative;
         right: -20px;
-        padding: 0;
 
         img {
           width: 676px;
@@ -192,28 +232,44 @@
           margin-bottom: 80px;
         }
       }
-
-      .slider {
-        position: relative;
-        overflow: hidden;
-        list-style: none;
-        z-index: 1;
-        display: block;
-        margin: 0 64px;
-
-        .photos {
-          position: relative;
-          height: 190px;
+      .carousel {
+        width: 436px;
+        padding-bottom: 170px;
+        padding-right: 21px;
+        .slider {
+          height: 233px;
+         
+          .slide {
+            padding: 11px 44px;
+          }
         }
 
-        .photos img {
-          width: 100%;
-          position: absolute;
-          left: 0;
-          opacity: 0;
-          transition: opacity 1s;
+        .nav-carousel {
+          padding-top: 20px;
+  
+          .btnslide-container {
+            .btnslide {
+              width: 40px;
+              height: 40px;
+              padding: 8px;
+            }
+          }
+          .slide-number {
+            font-family: Epilogue;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 18px;
+            letter-spacing: -0.02em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+  
         }
+        
+       
       }
+     
     }
   }
 }
